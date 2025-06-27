@@ -1,22 +1,26 @@
 {
-  "name": "members-only",
-  "version": "1.0.0",
-  "description": "Session-based authentication project from The Odin Project curriculum.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Dewiin",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^16.6.0",
-    "ejs": "^3.1.10",
-    "express": "^5.1.0",
-    "express-session": "^1.18.1",
-    "express-validator": "^7.2.1",
-    "passport": "^0.7.0",
-    "passport-local": "^1.0.0",
-    "pg": "^8.16.2",
-    "prettier": "^3.6.1"
-  }
+	"name": "members-only",
+	"version": "1.0.0",
+	"description": "Session-based authentication project from The Odin Project curriculum.",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"dev": "node --watch index.js",
+		"format": "prettier . --write",
+		"script": "node db/script.js"
+	},
+	"author": "Dewiin",
+	"license": "ISC",
+	"dependencies": {
+		"bcryptjs": "^3.0.2",
+		"dotenv": "^16.6.0",
+		"ejs": "^3.1.10",
+		"express": "^5.1.0",
+		"express-session": "^1.18.1",
+		"express-validator": "^7.2.1",
+		"passport": "^0.7.0",
+		"passport-local": "^1.0.0",
+		"pg": "^8.16.2",
+		"prettier": "^3.6.1"
+	}
 }
