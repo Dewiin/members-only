@@ -1,0 +1,50 @@
+.navbar-container {
+	width: 100%;
+	position: fixed;
+	top: 1rem;
+}
+
+.default-navbar {
+	width: 50%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	background-color: var(--secondary-color);
+	color: white;
+	margin: auto;
+	padding: 0.5rem 2rem;
+	border-radius: 25px;
+	border: 1px solid;
+}
+
+.default-navbar > section {
+	display: flex;
+	min-width: fit-content;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.default-navbar > section button {
+	height: 50px;
+	padding: 0 1rem;
+	font-size: 1em;
+	font-weight: 900;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.register-button {
+	color: rgb(59 41 81);
+	background-color: rgb(249 244 245);
+}
+.login-button {
+	background-color: rgb(59 41 81);
+	color: rgb(249 244 245);
+}
+
+.logo {
+	width: 2rem;
+	display: flex;
+	align-items: center;
+}

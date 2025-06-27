@@ -4,8 +4,7 @@ require("dotenv").config();
 const SQL = `
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        first_name TEXT NOT NULL,
-        last_name TEXT NOT NULL,
+        full_name TEXT NOT NULL,
         username TEXT UNIQUE NOT NULL,
         password_hash TEXT NOT NULL,
         membership_status BOOLEAN DEFAULT FALSE
