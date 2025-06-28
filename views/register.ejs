@@ -15,21 +15,24 @@
             <h2> Register a New Account </h2>
             <span>
                 <label for="fullname">Full Name: </label>
-                <input name="fullname" id="fullname" placeholder="John Doe" required>
+                <input name="fullname" id="fullname" placeholder="John Doe" minlength="6" maxlength="20" required>
             </span>
             <span>
                 <label for="username">Username: </label>
-                <input name="username" id="username" placeholder="johndoe123" required>
+                <input name="username" id="username" placeholder="johndoe123" minlength="6" maxlength="20" required>
             </span>
             <span>
                 <label for="password">Password: </label>
-                <input name="password" id="password" placeholder="********" required>
+                <input name="password" id="password" placeholder="********" minlength="6" maxlength="20" required>
             </span>
             <span>
                 <label for="confirm-password">Confirm Password: </label>
-                <input name="confirm-password" id="confirm-password" placeholder="********" required>
+                <input name="confirm-password" id="confirm-password" placeholder="********" minlength="6" maxlength="20" required>
             </span>
+            <button type="submit"> Register </button>
         </form>
     </main>
+
+    <%- include("partials/footer") %>
 </body>
 </html>

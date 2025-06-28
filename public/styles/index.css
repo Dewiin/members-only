@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
-	--primary-color: rgb(25 31 36);
+	--primary-color: rgb(8 10 12);
 	--secondary-color: rgb(90 91 114);
 	--tertiary-color: rgb(157 155 149);
 }
@@ -17,4 +17,19 @@ body {
 	padding: 0;
 	margin: 0;
 	background-color: var(--primary-color);
+}
+
+h2 {
+    margin: 0;
+}
+
+footer {
+    width: 100%;
+    height: fit-content;
+    padding: 1rem 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    color: var(--tertiary-color);
 }

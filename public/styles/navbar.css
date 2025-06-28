@@ -9,12 +9,12 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	background-color: var(--secondary-color);
-	color: white;
+	/* background-color: var(--secondary-color); */
+	color: var(--tertiary-color);
 	margin: auto;
 	padding: 0.5rem 2rem;
-	border-radius: 25px;
-	border: 1px solid;
+	border-radius: 15px;
+	border-bottom: 4px solid;
 }
 
 .default-navbar > section {
@@ -47,4 +47,10 @@
 	width: 2rem;
 	display: flex;
 	align-items: center;
+}
+
+@media (max-width: 835px) {
+	.default-navbar {
+		justify-content: center;
+	}
 }
