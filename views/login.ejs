@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/form.css">
 </head>
 <body>
     <%- include("partials/defaultNavbar") %>
+
+    <main class="auth-container">
+        <form action="/form/login" method="POST">
+            <h2> Welcome Back! </h2>
+            <span>
+                <label for="username">Username: </label>
+                <input name="username" id="username" placeholder="johndoe123" minlength="6" maxlength="20" required>
+            </span>
+            <span>
+                <label for="password">Password: </label>
+                <input name="password" id="password" placeholder="********" minlength="6" maxlength="20" required>
+            </span>
+            <button type="submit"> Login </button>
+        </form>
+    </main>
+
+    <%- include("partials/footer") %>
 </body>
 </html>

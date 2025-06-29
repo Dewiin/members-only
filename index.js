@@ -3,7 +3,6 @@ const path = require("node:path");
 const app = express();
 
 const indexRouter = require("./routes/indexRouter");
-const postsRouter = require("./routes/postsRouter");
 const formsRouter = require("./routes/formsRouter");
 
 app.set("view engine", "ejs");
@@ -14,7 +13,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use("/", indexRouter);
-app.use("/posts", postsRouter);
 app.use("/form", formsRouter);
 
 // Run
