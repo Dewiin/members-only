@@ -16,13 +16,13 @@ async function insertUser(full_name, username, password_hash) {
     }
 }
 
-async function giveMembership(username) {
-    try {
+// async function giveMembership(username) {
+//     try {
 
-    } catch (error) {
-        console.error(`Failed to validate user's membership: `, error);
-    }
-}
+//     } catch (error) {
+//         console.error(`Failed to validate user's membership: `, error);
+//     }
+// }
 
 module.exports = {
     insertUser
