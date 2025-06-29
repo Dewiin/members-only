@@ -14,20 +14,20 @@
         <form action="/form/register" method="POST">
             <h2> Register a New Account </h2>
             <span>
-                <label for="fullname">Full Name: </label>
-                <input name="fullname" id="fullname" placeholder="John Doe" minlength="6" maxlength="20" required>
+                <label for="full_name">Full Name: </label>
+                <input type="text" name="full_name" id="full_name" placeholder="John Doe" minlength="6" maxlength="20" required>
             </span>
             <span>
                 <label for="username">Username: </label>
-                <input name="username" id="username" placeholder="johndoe123" minlength="6" maxlength="20" required>
+                <input type="text" name="username" id="username" placeholder="johndoe123" minlength="6" maxlength="20" required>
             </span>
             <span>
                 <label for="password">Password: </label>
-                <input name="password" id="password" placeholder="********" minlength="6" maxlength="20" required>
+                <input type="password" name="password" id="password" placeholder="********" minlength="6" maxlength="20" required>
             </span>
             <span>
-                <label for="confirm-password">Confirm Password: </label>
-                <input name="confirm-password" id="confirm-password" placeholder="********" minlength="6" maxlength="20" required>
+                <label for="confirm_password">Confirm Password: </label>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="********" minlength="6" maxlength="20" required>
             </span>
             <button type="submit"> Register </button>
         </form>
