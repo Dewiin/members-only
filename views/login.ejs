@@ -12,6 +12,8 @@
 
     <main class="auth-container">
         <form action="/form/login" method="POST">
+            <%- include("partials/errors") %>
+
             <h2> Welcome Back! </h2>
             <span>
                 <label for="username">Username: </label>
@@ -19,7 +21,7 @@
             </span>
             <span>
                 <label for="password">Password: </label>
-                <input name="password" id="password" placeholder="********" minlength="6" maxlength="20" required>
+                <input name="password" id="password" placeholder="******" minlength="6" maxlength="20" required>
             </span>
             <button type="submit"> Login </button>
         </form>

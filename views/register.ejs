@@ -12,6 +12,8 @@
 
     <main class="auth-container">
         <form action="/form/register" method="POST">
+            <%- include("partials/errors") %>
+
             <h2> Register a New Account </h2>
             <span>
                 <label for="full_name">Full Name: </label>
@@ -23,11 +25,11 @@
             </span>
             <span>
                 <label for="password">Password: </label>
-                <input type="password" name="password" id="password" placeholder="********" minlength="6" maxlength="20" required>
+                <input type="password" name="password" id="password" placeholder="******" minlength="6" maxlength="20" required>
             </span>
             <span>
                 <label for="confirm_password">Confirm Password: </label>
-                <input type="password" name="confirm_password" id="confirm_password" placeholder="********" minlength="6" maxlength="20" required>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="******" minlength="6" maxlength="20" required>
             </span>
             <button type="submit"> Register </button>
         </form>
