@@ -11,8 +11,25 @@ async function findUserByUsername(username) {
 		const { rows } = await pool.query(SQL, [username]);
 		return rows[0];
 	} catch (error) {
-		console.error(`Error getting user from the database: `, error);
+		console.error(`Error finding username ${username} in the database: `, error);
 	}
+}
+
+async function findUserByID(id) {
+    try {
+        const SQL = 
+        `
+        SELECT * 
+        FROM users
+        WHERE id = $1
+        `
+
+        const { rows } = await pool.query(SQL, [id]);
+        return rows[0];
+    }
+    catch (error) {
+        console.error(`Error finding id ${id} in the database: `, error);
+    }
 }
 
 async function insertUser(full_name, username, password_hash) {
@@ -39,18 +56,8 @@ async function insertUser(full_name, username, password_hash) {
 // }
 
 module.exports = {
-	findUserByUsername,
+    findUserByUsername,
+    findUserByID,
 	insertUser,
 };
 
-// async function main() {
-//     const user = await getUser("john");
-//     if(user) {
-//         console.log(user);
-//     }
-//     else {
-//         console.log("nope.");
-//     }
-// }
-
-// main();
