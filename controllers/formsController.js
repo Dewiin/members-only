@@ -77,7 +77,7 @@ async function registerPost(req, res) {
 
 function loginGet(req, res) {
 	try {
-		res.render("login", { title: "Login", user: req.user });
+		res.render("login", { title: "Login" });
 	} catch (error) {
 		console.error(`Error fetching login page: `, error);
 	}

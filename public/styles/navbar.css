@@ -4,7 +4,7 @@
 	top: 1rem;
 }
 
-.default-navbar {
+.default-navbar, .user-navbar {
 	width: 50%;
 	display: flex;
 	flex-wrap: wrap;
@@ -17,7 +17,7 @@
 	border-bottom: 4px solid;
 }
 
-.default-navbar > section {
+.default-navbar > section, .user-navbar > section {
 	display: flex;
 	min-width: fit-content;
 	justify-content: center;
@@ -49,8 +49,15 @@
 	align-items: center;
 }
 
+.navbar-profile-icon {
+	width: 2rem;
+	height: 2rem;
+	background-color: orange;
+	border-radius: 20px;
+}
+
 @media (max-width: 835px) {
-	.default-navbar {
+	.default-navbar, .user-navbar {
 		justify-content: center;
 	}
 }

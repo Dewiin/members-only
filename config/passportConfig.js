@@ -6,7 +6,6 @@ const users_db = require("../db/userQueries");
 async function verifyCallback(username, password, done) {
     try {
         const user = await users_db.findUserByUsername(username);
-
         if (!user) {
             return done(null, false, { message: "Username not found." });
         }
