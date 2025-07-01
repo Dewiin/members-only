@@ -6,6 +6,16 @@ function indexGet(req, res) {
 	}
 }
 
+function logoutGet(req, res) {
+	req.logout((err) => {
+		if(err) {
+			return next(err);
+		}
+		res.redirect("/");
+	});
+}
+
 module.exports = {
 	indexGet,
+	logoutGet
 };

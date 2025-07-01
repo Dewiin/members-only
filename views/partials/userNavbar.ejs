@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/styles/navbar.css">
+<script src="/scripts/userNavbar.js" defer></script>
 <section class="navbar-container">
     <nav class="user-navbar">
         <section>
@@ -36,11 +37,15 @@
             </a>
             <h1>Inkcognito</h1>
         </section>
-        <section>
-            <div class="navbar-profile-icon"></div>
+        <section class="user-navbar-profile">
+            <div class="user-navbar-profile-icon"></div>
             <p>
                 <%= user.username %> ⌄
             </p>
+            <ul>
+                <li>Add New Post</li>
+                <a href="/logout"><li>Logout</li></a>
+            </ul>
         </section>
     </nav>
 </section>

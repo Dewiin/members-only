@@ -35,6 +35,10 @@ footer {
 	color: var(--tertiary-color);
 }
 
+a {
+	text-decoration: none;
+}
+
 .errors-list {
 	margin: 0 1rem;
 	padding: 1rem;
