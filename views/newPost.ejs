@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %> </title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/form.css">
+</head>
+<body>
+    <% if (locals.user) { %>
+        <%- include("./partials/userNavbar") %>
+        <main class="auth-container">
+            <form action="/new-post" method="POST">
+                <%- include("partials/errors") %>
+                <h2> Create New Post </h2>
+
+                <span>
+                    <label for="post_title">Title:</label>
+                    <input type="text" name="post_title" id="post_title" minlength="1" maxlength="30" required>
+                </span>
+                <span>
+                    <label for="post_content">Content:</label>
+                    <textarea name="post_content" id="post_content" minlength="1" maxlength="400" required></textarea>
+                </span>
+
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+    <% } else { %>
+        <%- include("./partials/defaultNavbar") %>
+    <% } %> 
+
+    <%- include("./partials/footer") %>
+</body>
+</html>

@@ -2,6 +2,7 @@
 	width: 100%;
 	min-height: fit-content;
 	padding-top: 10rem;
+	flex: 1;
 }
 
 .auth-container > form {
@@ -32,6 +33,14 @@ input {
 	padding: 10px 15px;
 	border-radius: 10px;
 	border: none;
+}
+
+textarea {
+	resize: none;
+	padding: 10px 15px;
+	border-radius: 10px;
+	height: 15rem;
+	font-size: 0.8rem;
 }
 
 @media (max-width: 835px) {

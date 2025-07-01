@@ -64,7 +64,7 @@ function registerGet(req, res) {
 	}
 }
 
-async function registerPost(req, res) {
+async function registerPost(req, res, next) {
 	try {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
@@ -78,7 +78,7 @@ async function registerPost(req, res) {
 		const hashedPassword = await bcrypt.hash(password, 10);
 		await users_db.insertUser(full_name, username, hashedPassword);
 
-		res.redirect("/");
+		next();
 	} catch (error) {
 		console.error(`Failed to verify registration: `, error);
 	}
@@ -109,7 +109,14 @@ function loginPost(req, res, next) {
 
 module.exports = {
 	registerGet,
-	registerPost: [validateUserRegister, registerPost],
+	registerPost: [
+		validateUserRegister, 
+		registerPost,
+		passport.authenticate("local", {
+			successRedirect: "/",
+			failureRedirect: "/form/login",
+		}), 
+	],
 	loginGet,
 	loginPost: [
 		validateUserLogin, 
