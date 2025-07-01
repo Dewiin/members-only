@@ -37,12 +37,21 @@ const validateUserRegister = [
 ];
 
 const validateUserLogin = [
-	body("username").custom(async (value) => {
+	body("username")
+	.custom(async (value) => {
 		const user = await users_db.findUserByUsername(value);
 		if (!user) {
 			throw new Error("Username does not exist.");
 		}
 	}),
+	body("password")
+	.custom(async (value, {req}) => {
+		const user = await users_db.findUserByUsername(req.body.username);
+		const match = await bcrypt.compare(value, user.password_hash);
+		if(!match) {
+			throw new Error("Username or password is incorrect.");
+		}
+	})
 ];
 
 
