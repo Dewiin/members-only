@@ -1,7 +1,9 @@
 const { body, validationResult } = require("express-validator");
+const passport = require("passport");
 const bcrypt = require("bcryptjs");
 const users_db = require("../db/userQueries");
 
+// Validators
 const validateUserRegister = [
 	body("full_name")
 		.trim()
@@ -43,6 +45,8 @@ const validateUserLogin = [
 	}),
 ];
 
+
+// Functions
 function registerGet(req, res) {
 	try {
 		res.render("register", { title: "Register" });
@@ -73,13 +77,13 @@ async function registerPost(req, res) {
 
 function loginGet(req, res) {
 	try {
-		res.render("login", { title: "Login" });
+		res.render("login", { title: "Login", user: req.user });
 	} catch (error) {
 		console.error(`Error fetching login page: `, error);
 	}
 }
 
-async function loginPost(req, res) {
+function loginPost(req, res, next) {
 	try {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
@@ -88,6 +92,7 @@ async function loginPost(req, res) {
 				errors: errors.array(),
 			});
 		}
+		next();
 	} catch (error) {
 		console.error(`Failed to verify login: `, error);
 	}
@@ -97,5 +102,12 @@ module.exports = {
 	registerGet,
 	registerPost: [validateUserRegister, registerPost],
 	loginGet,
-	loginPost: [validateUserLogin, loginPost],
+	loginPost: [
+		validateUserLogin, 
+		loginPost,
+		passport.authenticate("local", {
+			successRedirect: "/",
+			failureRedirect: "/form/login",
+		}), 
+	],
 };

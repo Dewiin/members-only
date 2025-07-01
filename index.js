@@ -11,14 +11,14 @@ require("./config/passportConfig");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(sessionConfig);
+app.use(passport.session());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use("/", indexRouter);
 app.use("/form", formsRouter);
-app.use(sessionConfig);
-app.use(passport.session());
 
 // Run
 const PORT = process.env.PORT || 3000;
