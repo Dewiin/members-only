@@ -13,6 +13,12 @@
         <%- include("partials/defaultNavbar") %>
     <% } %>
 
+    <main class="messages-container">
+        <% messages.forEach((message) => { %>
+            <%- include("./partials/message", {message: message}) %>
+        <% }) %> 
+    </main>
+
     <%- include("partials/footer") %>
 </body>
 </html>

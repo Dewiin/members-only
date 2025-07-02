@@ -4,7 +4,8 @@
 	top: 0;
 }
 
-.default-navbar, .user-navbar {
+.default-navbar,
+.user-navbar {
 	width: 50%;
 	display: flex;
 	flex-wrap: wrap;
@@ -17,7 +18,8 @@
 	border-bottom: 4px solid;
 }
 
-.default-navbar > section, .user-navbar > section {
+.default-navbar > section,
+.user-navbar > section {
 	display: flex;
 	min-width: fit-content;
 	justify-content: center;
@@ -82,7 +84,9 @@
 	list-style: none;
 	cursor: pointer;
 	color: var(--tertiary-color);
-	transition: background-color 200ms ease, color 200ms ease;
+	transition:
+		background-color 200ms ease,
+		color 200ms ease;
 }
 
 .user-navbar-profile > ul li:hover {
@@ -90,9 +94,9 @@
 	color: var(--primary-color);
 }
 
-
 @media (max-width: 835px) {
-	.default-navbar, .user-navbar {
+	.default-navbar,
+	.user-navbar {
 		justify-content: center;
 	}
 }
