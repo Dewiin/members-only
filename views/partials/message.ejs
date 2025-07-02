@@ -4,10 +4,10 @@
         <div class="message-header-profile-icon"></div>
         <div class="message-header-info">
             <p class="message-header-fullname">
-                <%= message.full_name %>
+                <%= locals.user && user.membership_status ? message.full_name : '???' %>
             </p>
             <p>
-                @<%= message.username %> • <%= message.timeAgo %>
+                <%= locals.user && user.membership_status ? '@' + message.username + ' • ' + message.timeAgo : '??? • ???' %>
             </p>
         </div>
     </div>
