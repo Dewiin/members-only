@@ -1,5 +1,7 @@
 const { formatDistanceToNow } = require("date-fns");
 const messages_db = require("../db/messageQueries");
+const users_db = require("../db/userQueries");
+require("dotenv").config();
 
 async function indexGet(req, res) {
 	try {
@@ -46,9 +48,25 @@ async function createPost(req, res) {
 	}
 }
 
+async function memberPost(req, res) {
+	try {
+		const { membershipPassword } = req.body;
+
+		if (membershipPassword === process.env.MEMBERSHIP_SECRET) {
+			await users_db.giveMembership(req.user.id);
+			return res.sendStatus(200);
+		}
+		res.sendStatus(401);
+	}
+	catch (error) {
+		console.error(`Error updating membership status in database: `, error);
+	}
+}
+
 module.exports = {
 	indexGet,
 	logoutGet,
 	createGet,
 	createPost,
+	memberPost
 };

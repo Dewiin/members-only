@@ -58,3 +58,20 @@ a {
 	font-size: 2em;
 	flex: 1;
 }
+
+.notif {
+	width: 40%;
+	text-align: center;
+	padding: 1rem 2rem;
+	background-color: var(--secondary-color);
+	color: white;
+	border: 1px solid;
+	border-radius: 10px;
+}
+
+.notif a {
+	color: rgb(59 41 81);
+	font-weight: 900;
+	text-decoration: underline;
+	cursor: pointer;
+}

@@ -6,5 +6,6 @@ indexRouter.get("/", indexController.indexGet);
 indexRouter.get("/logout", indexController.logoutGet);
 indexRouter.get("/new-post", indexController.createGet);
 indexRouter.post("/new-post", indexController.createPost);
+indexRouter.post("/become-member", indexController.memberPost);
 
 module.exports = indexRouter;
