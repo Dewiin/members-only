@@ -9,10 +9,16 @@ async function indexGet(req, res) {
 
 		const messages = response.map((msg) => ({
 			...msg,
-			timeAgo: formatDistanceToNow(new Date(msg.created_at), {addSuffix: true})
+			timeAgo: formatDistanceToNow(new Date(msg.created_at), {
+				addSuffix: true,
+			}),
 		}));
 
-		res.render("index", { title: "Inkcognito", user: req.user, messages: messages });
+		res.render("index", {
+			title: "Inkcognito",
+			user: req.user,
+			messages: messages,
+		});
 	} catch (error) {
 		console.error(`Error getting home page: `, error);
 	}
@@ -57,8 +63,7 @@ async function memberPost(req, res) {
 			return res.sendStatus(200);
 		}
 		res.sendStatus(401);
-	}
-	catch (error) {
+	} catch (error) {
 		console.error(`Error updating membership status in database: `, error);
 	}
 }
@@ -68,5 +73,5 @@ module.exports = {
 	logoutGet,
 	createGet,
 	createPost,
-	memberPost
+	memberPost,
 };

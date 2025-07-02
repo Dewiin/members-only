@@ -49,23 +49,22 @@ async function insertUser(full_name, username, password_hash) {
 }
 
 async function giveMembership(id) {
-    try {
-		const SQL = 
-		`
+	try {
+		const SQL = `
 		UPDATE users
 		SET membership_status = true
 		WHERE users.id = $1
-		`
+		`;
 
 		await pool.query(SQL, [id]);
-    } catch (error) {
-        console.error(`Failed to validate user's membership: `, error);
-    }
+	} catch (error) {
+		console.error(`Failed to validate user's membership: `, error);
+	}
 }
 
 module.exports = {
 	findUserByUsername,
 	findUserByID,
 	insertUser,
-	giveMembership
+	giveMembership,
 };
