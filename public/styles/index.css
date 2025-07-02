@@ -49,3 +49,12 @@ a {
 	color: var(--tertiary-color);
 	border-radius: 15px;
 }
+
+.auth-error {
+	width: 50%;
+	text-align: center;
+	color: var(--tertiary-color);
+	margin: 15rem auto 0;
+	font-size: 2em;
+	flex: 1;
+}
