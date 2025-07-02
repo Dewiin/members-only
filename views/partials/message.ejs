@@ -1,11 +1,14 @@
 <link rel="stylesheet" href="/styles/messages.css">
 <div class="message-box">
     <div class="message-header">
-        <div class="message-header-profile-icon">
-
-        </div>
+        <div class="message-header-profile-icon"></div>
         <div class="message-header-info">
-            <p class="message-header-fullname"></p>
+            <p class="message-header-fullname">
+                <%= message.full_name %>
+            </p>
+            <p>
+                @<%= message.username %> • <%= message.timeAgo %>
+            </p>
         </div>
     </div>
     <h3> <%= message.title %> </h3>

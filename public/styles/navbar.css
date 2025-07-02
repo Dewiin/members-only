@@ -60,7 +60,8 @@
 .user-navbar-profile-icon {
 	width: 2rem;
 	height: 2rem;
-	background-color: orange;
+	background-color: var(--secondary-color);
+	border: 2px solid var(--tertiary-color);
 	border-radius: 20px;
 }
 

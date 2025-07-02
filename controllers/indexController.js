@@ -1,9 +1,14 @@
-const { text } = require("express");
+const { formatDistanceToNow } = require("date-fns");
 const messages_db = require("../db/messageQueries");
 
 async function indexGet(req, res) {
 	try {
-		const messages = await messages_db.getAllMessages();
+		const response = await messages_db.getAllMessages();
+
+		const messages = response.map((msg) => ({
+			...msg,
+			timeAgo: formatDistanceToNow(new Date(msg.created_at), {addSuffix: true})
+		}));
 
 		res.render("index", { title: "Inkcognito", user: req.user, messages: messages });
 	} catch (error) {
