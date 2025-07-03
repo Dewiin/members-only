@@ -37,12 +37,12 @@
 	cursor: pointer;
 }
 .register-button {
-	color: rgb(59 41 81);
-	background-color: rgb(249 244 245);
+	color: var(--purple-color);
+	background-color: var(--white-color);
 }
 .login-button {
-	background-color: rgb(59 41 81);
-	color: rgb(249 244 245);
+	background-color: var(--purple-color);
+	color: var(--white-color);
 }
 
 .logo {
