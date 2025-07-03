@@ -7,5 +7,6 @@ indexRouter.get("/logout", indexController.logoutGet);
 indexRouter.get("/new-post", indexController.createGet);
 indexRouter.post("/new-post", indexController.createPost);
 indexRouter.post("/become-member", indexController.memberPost);
+indexRouter.get("/delete-message/:messageID", indexController.postDelete);
 
 module.exports = indexRouter;

@@ -4,12 +4,15 @@
         <div class="message-header-profile-icon"></div>
         <div class="message-header-info">
             <p class="message-header-fullname">
-                <%= locals.user && user.membership_status ? message.full_name : '???' %>
+                <%= user && user.membership_status ? message.full_name : '???' %>
             </p>
             <p>
-                <%= locals.user && user.membership_status ? '@' + message.username + ' • ' + message.timeAgo : '??? • ???' %>
+                <%= user && user.membership_status ? '@' + message.username + ' • ' + message.timeAgo : '??? • ???' %>
             </p>
         </div>
+        <% if (user && user.admin_status) { %>
+            <a class="delete-message" href="/delete-message/<%=message.id%>"> 🗙 </a>
+        <% } %>
     </div>
     <h3> <%= message.title %> </h3>
     <p> <%= message.text %> </p>

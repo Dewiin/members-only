@@ -14,6 +14,7 @@
 	color: white;
 	border: 1px solid;
 	border-radius: 10px;
+	position: relative;
 }
 
 .message-box > p {
@@ -42,4 +43,13 @@
 .message-header-fullname {
 	font-size: 1.25rem;
 	font-weight: 900;
+}
+
+.delete-message {
+	font-size: 1.5rem;
+	font-weight: 900;
+	color: var(--red-color);
+	position: absolute;
+	top: 1rem;
+	right: 2rem;
 }

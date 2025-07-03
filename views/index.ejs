@@ -8,18 +8,18 @@
     <script src="/scripts/addMembership.js" defer></script>
 </head>
 <body>
-    <% if (locals.user) { %>
+    <% if (user) { %>
         <%- include("partials/userNavbar", {user: user}) %>
     <% } else { %>
         <%- include("partials/defaultNavbar") %>
     <% } %>
 
     <main class="messages-container">
-        <% if(!locals.user) { %>
+        <% if(!user) { %>
             <span class="notif">
                 <p>To add a post, you need to <a href="/form/login">login</a> first.</p>
             </span>
-        <% } else if (locals.user && !user.membership_status) { %>
+        <% } else if (user && !user.membership_status) { %>
             <span class="notif">
                 <p>To see more details, you need to <a class="become-member">become a member</a> first.</p>
             </span>

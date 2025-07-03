@@ -68,10 +68,22 @@ async function memberPost(req, res) {
 	}
 }
 
+async function postDelete(req, res) {
+	try {
+		const { messageID } = req.params;
+		
+		await messages_db.deleteMessageByID(messageID);
+		res.redirect("/");
+	} catch (error) {
+		console.error(`Error deleting message from the database: `, error);
+	}
+}
+
 module.exports = {
 	indexGet,
 	logoutGet,
 	createGet,
 	createPost,
 	memberPost,
+	postDelete
 };

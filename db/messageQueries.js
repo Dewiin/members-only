@@ -36,7 +36,22 @@ async function insertMessage(title, text, author) {
 	}
 }
 
+async function deleteMessageByID(id) {
+	try {
+		const SQL = 
+		`
+		DELETE FROM messages
+		WHERE id = $1
+		`
+
+		await pool.query(SQL, [id]);
+	} catch (error) {
+		console.error(`Error deleting message from the database: `, error);
+	}
+}
+
 module.exports = {
 	getAllMessages,
 	insertMessage,
+	deleteMessageByID
 };
