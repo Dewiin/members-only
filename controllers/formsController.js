@@ -55,7 +55,10 @@ const validateUserLogin = [
 // Functions
 function registerGet(req, res) {
 	try {
-		res.render("register", { title: "Register" });
+		if(!req.user) {
+			return res.render("register", { title: "Register" });
+		}
+		res.redirect("/");
 	} catch (error) {
 		console.error(`Error fetching register page: `, error);
 	}
@@ -83,7 +86,10 @@ async function registerPost(req, res, next) {
 
 function loginGet(req, res) {
 	try {
-		res.render("login", { title: "Login" });
+		if(!req.user) {	
+			return res.render("login", { title: "Login" });
+		}
+		res.redirect("/");
 	} catch (error) {
 		console.error(`Error fetching login page: `, error);
 	}
