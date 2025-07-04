@@ -45,6 +45,9 @@ const validateUserLogin = [
 	}),
 	body("password").custom(async (value, { req }) => {
 		const user = await users_db.findUserByUsername(req.body.username);
+		if(!user) {
+			throw new Error("Username or password is incorrect.");
+		}
 		const match = await bcrypt.compare(value, user.password_hash);
 		if (!match) {
 			throw new Error("Username or password is incorrect.");
