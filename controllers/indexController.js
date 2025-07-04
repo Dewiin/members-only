@@ -79,11 +79,31 @@ async function postDelete(req, res) {
 	}
 }
 
+async function profileGet(req, res) {
+	try {
+		const { userID } = req.params;
+		const profile = await users_db.findUserByID(userID);
+		const response = await messages_db.getMessagesByID(userID);
+
+		const messages = response.map((msg) => ({
+			...msg,
+			timeAgo: formatDistanceToNow(new Date(msg.created_at), {
+				addSuffix: true,
+			}),
+		}));
+
+		return res.render("profile", { title: `${profile.username}'s Profile`, profile: profile, messages: messages, user: req.user});
+	} catch (error) {
+		console.error(`Error retrieving profile info from database: `, error);
+	}
+}
+
 module.exports = {
 	indexGet,
 	logoutGet,
 	createGet,
 	createPost,
 	memberPost,
-	postDelete
+	postDelete,
+	profileGet
 };

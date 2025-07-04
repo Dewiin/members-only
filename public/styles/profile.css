@@ -1,0 +1,48 @@
+.profile-container {
+    width: 100%;
+	min-height: fit-content;
+	margin-top: 10rem;
+	flex: 1;
+}
+
+.profile {
+    width: 50%;
+    min-width: 300px;
+    color: var(--white-color);
+    border: 3px solid;
+    border-radius: 15px;
+    margin: auto;
+    text-align: center;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile > span {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.profile > span > div {
+    color: var(--white-color);
+    padding: 0.5rem 1rem;
+    border: 1px solid;
+    border-radius: 15px;
+    background-color: var(--secondary-color);
+}
+
+.profile-messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (max-width: 835px) {
+	.profile-container {
+        margin-top: 15rem;
+    }
+}
