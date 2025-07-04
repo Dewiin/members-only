@@ -7,19 +7,45 @@ async function getAllMessages() {
 			messages.id, 
 			messages.title, 
 			messages.text, 
-			messages.created_at, 
+			messages.created_at,
+			messages.author,
 			users.full_name, 
 			users.username
 		FROM messages
 		JOIN users
 		ON messages.author = users.id
-		ORDER BY messages.created_at DESC;
+		ORDER BY messages.created_at DESC
         `;
 
 		const { rows } = await pool.query(SQL);
 		return rows;
 	} catch (error) {
 		console.error(`Error retrieving all messages from the database: `, error);
+	}
+}
+
+async function getMessagesByID(id) {
+	try {
+		const SQL = 
+		`
+		SELECT 
+			messages.id, 
+			messages.title, 
+			messages.text, 
+			messages.created_at, 
+			messages.author,
+			users.full_name, 
+			users.username
+		FROM messages
+		JOIN users
+		ON messages.author = users.id
+		WHERE messages.author = $1
+		`
+
+		const { rows } = await pool.query(SQL, [id]);
+		return rows;
+	} catch (error) {
+		console.error(`Error retrieving user's messages: `, error);
 	}
 }
 
@@ -52,6 +78,7 @@ async function deleteMessageByID(id) {
 
 module.exports = {
 	getAllMessages,
+	getMessagesByID,
 	insertMessage,
 	deleteMessageByID
 };
