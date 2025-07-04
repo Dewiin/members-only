@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/styles/index.css">
+    <%- include("partials/favicon") %>
     <script src="/scripts/addMembership.js" defer></script>
 </head>
 <body>
@@ -25,7 +26,7 @@
             </span>
         <% } %>
         <% messages.forEach((message) => { %>
-            <%- include("./partials/message", {message: message}) %>
+            <%- include("partials/message", {message: message}) %>
         <% }) %> 
     </main>
 
