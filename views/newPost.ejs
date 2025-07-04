@@ -9,29 +9,25 @@
     <%- include("partials/favicon") %>
 </head>
 <body>
-    <% if (user) { %>
-        <%- include("partials/userNavbar") %>
-        <main class="auth-container">
-            <form action="/new-post" method="POST">
-                <%- include("partials/errors") %>
-                <h2> Create New Post </h2>
+    <%- include("partials/userNavbar") %>
+    
+    <main class="auth-container">
+        <form action="/new-post" method="POST">
+            <%- include("partials/errors") %>
+            <h2> Create New Post </h2>
 
-                <span>
-                    <label for="post_title">Title:</label>
-                    <input type="text" name="post_title" id="post_title" minlength="1" maxlength="30" required>
-                </span>
-                <span>
-                    <label for="post_content">Content:</label>
-                    <textarea name="post_content" id="post_content" minlength="1" maxlength="400" required></textarea>
-                </span>
+            <span>
+                <label for="post_title">Title:</label>
+                <input type="text" name="post_title" id="post_title" minlength="1" maxlength="30" required>
+            </span>
+            <span>
+                <label for="post_content">Content:</label>
+                <textarea name="post_content" id="post_content" minlength="1" maxlength="400" required></textarea>
+            </span>
 
-                <button type="submit">Submit</button>
-            </form>
-        </main>
-    <% } else { %>
-        <%- include("partials/defaultNavbar") %>
-        <%- include("partials/unauthorized") %>
-    <% } %> 
+            <button type="submit">Submit</button>
+        </form>
+    </main>
 
     <%- include("partials/footer") %>
 </body>

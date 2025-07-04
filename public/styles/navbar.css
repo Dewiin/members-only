@@ -53,9 +53,17 @@
 	margin: 0 0.5rem;
 }
 
+.logo:active {
+	transform: scale(0.9);
+}
+
 .user-navbar-profile {
 	position: relative;
 	cursor: pointer;
+}
+
+.user-navbar-profile:active {
+	transform: scale(0.95);
 }
 
 .user-navbar-profile-icon {
@@ -100,6 +108,7 @@
 	.default-navbar,
 	.user-navbar {
 		justify-content: center;
-		width: 50%;
+		gap: 1rem;
+		width: 70%;
 	}
 }

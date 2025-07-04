@@ -35,7 +35,10 @@ function logoutGet(req, res) {
 
 function createGet(req, res) {
 	try {
-		res.render("newPost", { title: "Create New Post", user: req.user });
+		if(req.user) {
+			return res.render("newPost", { title: "Create New Post", user: req.user });
+		}
+		res.render("401", {title: "401 Unauthorized Access", user: req.user});
 	} catch (error) {
 		console.error(`Error rendering new post page: `, error);
 	}
@@ -92,7 +95,10 @@ async function profileGet(req, res) {
 			}),
 		}));
 
-		return res.render("profile", { title: `${profile.username}'s Profile`, profile: profile, messages: messages, user: req.user});
+		if(req.user && (req.user.id === profile.id || req.user.admin_status)) {
+			return res.render("profile", { title: `${profile.username}'s Profile`, profile: profile, messages: messages, user: req.user});
+		}
+		res.render("401", {title: "401 Unauthorized Access", user: req.user});
 	} catch (error) {
 		console.error(`Error retrieving profile info from database: `, error);
 	}

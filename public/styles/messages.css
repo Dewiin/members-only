@@ -40,6 +40,7 @@
 
 .message-header-info > p {
 	margin: 0;
+	text-align: left;
 }
 
 .message-header-fullname {
@@ -48,12 +49,16 @@
 }
 
 .delete-message {
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	font-weight: 900;
 	color: var(--red-color);
 	position: absolute;
 	top: 1rem;
 	right: 2rem;
+}
+
+.delete-message:active {
+	transform: scale(0.9);
 }
  
 @media (max-width: 835px) {

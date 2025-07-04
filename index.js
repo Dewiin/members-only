@@ -20,6 +20,9 @@ app.use(express.static(path.join(__dirname, "public")));
 // Routes
 app.use("/", indexRouter);
 app.use("/form", formsRouter);
+app.use((req, res) => {
+  res.status(404).render("404", { title: "404 Page Not Found", user: req.user });
+});
 
 // Run
 const PORT = process.env.PORT || 3000;

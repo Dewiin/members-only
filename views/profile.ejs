@@ -11,24 +11,20 @@
 <body>
     <%- include("partials/userNavbar", {user: profile}) %>
 
-    <% if(user && profile.id === user.id) { %>
-        <main class="profile-container">
-            <div class="profile">
-                <h2><%= profile.full_name %></h2>
-                <span>
-                    <div>@<%= profile.username %></div>
-                    <div><%= profile.membership_status ? "Member" : "Non-member" %></div>
-                </span>
-                <div class="profile-messages">
-                    <% messages.forEach((message) => { %>
-                        <%- include("partials/message", {message: message}) %>
-                    <% }) %> 
-                </div>
+    <main class="profile-container">
+        <div class="profile">
+            <h2><%= profile.full_name %></h2>
+            <span>
+                <div>@<%= profile.username %></div>
+                <div><%= profile.membership_status ? "Member" : "Non-member" %></div>
+            </span>
+            <div class="profile-messages">
+                <% messages.forEach((message) => { %>
+                    <%- include("partials/message", {message: message}) %>
+                <% }) %> 
             </div>
-        </main>
-    <% } else { %>
-        <%- include("partials/unauthorized") %>
-    <% } %>
+        </div>
+    </main>
 
     <%- include("partials/footer") %>
 </body>
