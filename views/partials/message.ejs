@@ -4,10 +4,10 @@
         <div class="message-header-profile-icon"></div>
         <div class="message-header-info">
             <p class="message-header-fullname">
-                <%= user && user.membership_status || user.admin_status ? message.full_name : '???' %>
+                <%= user && (user.membership_status || user.admin_status) ? message.full_name : '???' %>
             </p>
             <p>
-                <%= user && user.membership_status || user.admin_status ? '@' + message.username + ' • ' + message.timeAgo : '??? • ???' %>
+                <%= user && (user.membership_status || user.admin_status) ? '@' + message.username + ' • ' + message.timeAgo : '??? • ???' %>
             </p>
         </div>
         <% if ((user && user.admin_status) || (user && user.id === message.author)) { %>
