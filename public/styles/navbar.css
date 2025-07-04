@@ -100,5 +100,6 @@
 	.default-navbar,
 	.user-navbar {
 		justify-content: center;
+		width: 50%;
 	}
 }

@@ -10,6 +10,7 @@
 
 .message-box {
 	width: 40%;
+	min-width: 200px;
 	padding: 1rem 2rem;
 	color: white;
 	border: 1px solid;
@@ -17,13 +18,14 @@
 	position: relative;
 }
 
-.message-box > p {
+.message-box > p, .message-box > h3 {
 	word-wrap: break-word;
 }
 
 /* Profile */
 .message-header {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	gap: 1rem;
 }
@@ -52,4 +54,10 @@
 	position: absolute;
 	top: 1rem;
 	right: 2rem;
+}
+ 
+@media (max-width: 835px) {
+	.messages-container {
+		margin-top: 15rem;
+	}
 }
