@@ -193,9 +193,9 @@ Verify that it's installed:
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
 
-## Demo
+## Preview
 <div align="center">
-  <img src="./public/pokedex_demo.gif" alt="demo video">
+  <img src="./public/assets/inkcognito_ss.png" alt="demo video">
 </div>
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
