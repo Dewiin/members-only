@@ -26,8 +26,7 @@ async function getAllMessages() {
 
 async function getMessagesByID(id) {
 	try {
-		const SQL = 
-		`
+		const SQL = `
 		SELECT 
 			messages.id, 
 			messages.title, 
@@ -40,7 +39,7 @@ async function getMessagesByID(id) {
 		JOIN users
 		ON messages.author = users.id
 		WHERE messages.author = $1
-		`
+		`;
 
 		const { rows } = await pool.query(SQL, [id]);
 		return rows;
@@ -64,11 +63,10 @@ async function insertMessage(title, text, author) {
 
 async function deleteMessageByID(id) {
 	try {
-		const SQL = 
-		`
+		const SQL = `
 		DELETE FROM messages
 		WHERE id = $1
-		`
+		`;
 
 		await pool.query(SQL, [id]);
 	} catch (error) {
@@ -80,5 +78,5 @@ module.exports = {
 	getAllMessages,
 	getMessagesByID,
 	insertMessage,
-	deleteMessageByID
+	deleteMessageByID,
 };

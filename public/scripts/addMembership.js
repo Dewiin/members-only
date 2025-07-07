@@ -1,6 +1,6 @@
 const membershipButton = document.querySelector(".become-member");
 
-if(membershipButton) {
+if (membershipButton) {
 	membershipButton.addEventListener("click", async () => {
 		const membershipPassword = prompt(
 			"What word is spelled incorrectly in every dictionary?",
