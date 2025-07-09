@@ -38,7 +38,7 @@ function createGet(req, res) {
 		if(req.user) {
 			return res.render("newPost", { title: "Create New Post", user: req.user });
 		}
-		res.render("401", {title: "401 Unauthorized Access", user: req.user});
+		res.status(401).render("401", {title: "401 Unauthorized Access", user: req.user});
 	} catch (error) {
 		console.error(`Error rendering new post page: `, error);
 	}
@@ -86,6 +86,9 @@ async function profileGet(req, res) {
 	try {
 		const { userID } = req.params;
 		const profile = await users_db.findUserByID(userID);
+		if(!profile) {
+			return res.status(404).render("404", { title: "404 Page Not Found", user: req.user });
+		}
 		const response = await messages_db.getMessagesByID(userID);
 
 		const messages = response.map((msg) => ({
@@ -98,7 +101,7 @@ async function profileGet(req, res) {
 		if(req.user && (req.user.id === profile.id || req.user.admin_status)) {
 			return res.render("profile", { title: `${profile.username}'s Profile`, profile: profile, messages: messages, user: req.user});
 		}
-		res.render("401", {title: "401 Unauthorized Access", user: req.user});
+		res.status(401).render("401", {title: "401 Unauthorized Access", user: req.user});
 	} catch (error) {
 		console.error(`Error retrieving profile info from database: `, error);
 	}
