@@ -18,7 +18,8 @@
 	position: relative;
 }
 
-.message-box > p, .message-box > h3 {
+.message-box > p,
+.message-box > h3 {
 	word-wrap: break-word;
 }
 
@@ -60,7 +61,7 @@
 .delete-message:active {
 	transform: scale(0.9);
 }
- 
+
 @media (max-width: 835px) {
 	.messages-container {
 		margin-top: 15rem;

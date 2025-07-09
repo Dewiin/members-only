@@ -21,7 +21,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/form", formsRouter);
 app.use((req, res) => {
-  res.status(404).render("404", { title: "404 Page Not Found", user: req.user });
+	res
+		.status(404)
+		.render("404", { title: "404 Page Not Found", user: req.user });
 });
 
 // Run

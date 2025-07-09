@@ -35,8 +35,11 @@ function logoutGet(req, res) {
 
 function createGet(req, res) {
 	try {
-		if(req.user) {
-			return res.render("newPost", { title: "Create New Post", user: req.user });
+		if (req.user) {
+			return res.render("newPost", {
+				title: "Create New Post",
+				user: req.user,
+			});
 		}
 		res.status(401).render("401", {title: "401 Unauthorized Access", user: req.user});
 	} catch (error) {
@@ -74,7 +77,7 @@ async function memberPost(req, res) {
 async function postDelete(req, res) {
 	try {
 		const { messageID } = req.params;
-		
+
 		await messages_db.deleteMessageByID(messageID);
 		res.redirect("/");
 	} catch (error) {
@@ -98,8 +101,13 @@ async function profileGet(req, res) {
 			}),
 		}));
 
-		if(req.user && (req.user.id === profile.id || req.user.admin_status)) {
-			return res.render("profile", { title: `${profile.username}'s Profile`, profile: profile, messages: messages, user: req.user});
+		if (req.user && (req.user.id === profile.id || req.user.admin_status)) {
+			return res.render("profile", {
+				title: `${profile.username}'s Profile`,
+				profile: profile,
+				messages: messages,
+				user: req.user,
+			});
 		}
 		res.status(401).render("401", {title: "401 Unauthorized Access", user: req.user});
 	} catch (error) {
@@ -114,5 +122,5 @@ module.exports = {
 	createPost,
 	memberPost,
 	postDelete,
-	profileGet
+	profileGet,
 };
