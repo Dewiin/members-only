@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/styles/index.css">
     <link rel="stylesheet" href="/styles/form.css">
     <%- include("partials/favicon") %>
+    <script src="/scripts/revealPassword.js" defer></script>
 </head>
 <body>
     <%- include("partials/defaultNavbar") %>
@@ -23,6 +24,7 @@
             <span>
                 <label for="password">Password: </label>
                 <input type="password" name="password" id="password" placeholder="******" minlength="6" maxlength="20" required>
+                <img class="reveal-password-icon" src="/assets/show.png">
             </span>
             <button type="submit"> Login </button>
         </form>

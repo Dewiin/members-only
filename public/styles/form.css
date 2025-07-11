@@ -27,6 +27,7 @@
 	flex-direction: column;
 	font-weight: 700;
 	width: 50%;
+	position: relative;
 }
 
 input {
@@ -34,6 +35,13 @@ input {
 	border-radius: 10px;
 	border: 1px solid var(--tertiary-color);
 	background-color: var(--tertiary-color);
+}
+
+.reveal-password-icon {
+	position: absolute;
+	right: 10px;
+	top: 52.5%;
+	cursor: pointer;
 }
 
 textarea {
@@ -64,6 +72,6 @@ button[type="submit"]:focus {
 
 @media (max-width: 835px) {
 	.auth-container {
-		padding-top: 15rem;
+		margin-top: 15rem;
 	}
 }
