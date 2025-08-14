@@ -120,7 +120,7 @@ module.exports = {
 		registerPost,
 		passport.authenticate("local", {
 			successRedirect: "/",
-			failureRedirect: "/form/login",
+			failureRedirect: "/form/register",
 		}),
 	],
 	loginGet,
