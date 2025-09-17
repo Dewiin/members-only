@@ -129,17 +129,17 @@ To get a local copy of this repository up and running locally follow these steps
 
 1. Ensure you have Node.js and npm installed:  
    **NOTE:** You can check installation and version with
-   `sh
+   ```sh
     node -v
     npm -v
-    `
+   ```
 
 2. Ensure you have PostreSQL installed:  
    **NOTE:** If you don't have PostgreSQL installed, [follow instructions](www.postgresql.org/download/) for your OS.  
    Verify that it's installed:
-   `sh
+   ```sh
     psql -V
-    `
+   ```
 
 ### Cloning the Repository
 
